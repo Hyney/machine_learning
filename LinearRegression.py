@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from utils.features import prepare_for_training
+from machine_learning.utils.features import prepare_for_training
 
 
 class LinearRegression:
