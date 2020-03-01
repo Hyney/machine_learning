@@ -23,7 +23,7 @@ class MultilayerPerceptron:  # 多层感知机
         data_processed = prepare_for_training(data, normalize_data=self.normalize_data)[0]
         num_examples = data_processed.shape[0]
 
-        predictions = MultilayerPerceptron.feedforward_propagation(data_processed, self.thetas, self.layers)
+        predictions = self.feedforward_propagation(data_processed, self.thetas, self.layers)
 
         return np.argmax(predictions, axis=1).reshape((num_examples, 1))
 
@@ -35,10 +35,10 @@ class MultilayerPerceptron:  # 多层感知机
         :return:
         """
         unroll_thetas = self.thetas_unroll(self.thetas)
-        (optimized_theta, cost_history) = MultilayerPerceptron.gradient_descent(self.data, self.labels, unroll_thetas,
+        (optimized_theta, cost_history) = self.gradient_descent(self.data, self.labels, unroll_thetas,
                                                                                 self.layers, max_iterations, alpha)
 
-        self.thetas = MultilayerPerceptron.thetas_roll(optimized_theta, self.layers)
+        self.thetas = self.thetas_roll(optimized_theta, self.layers)
         return self.thetas, cost_history
 
     @classmethod
@@ -66,7 +66,7 @@ class MultilayerPerceptron:  # 多层感知机
     @classmethod
     def gradient_step(cls, data, labels, thetas, layers):
         """
-        梯度更新
+        单步梯度下降
         :param data:
         :param labels:
         :param thetas: 行矩阵权重系数还原后的权重系数
