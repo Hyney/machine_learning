@@ -5,7 +5,7 @@ import plotly
 import plotly.graph_objs as go
 
 plotly.offline.init_notebook_mode()
-from linear_regression import LinearRegression
+from LinearRegression.linear_regression import LinearRegression
 
 data = pd.read_csv('../data/world-happiness-report-2017.csv')
 
@@ -97,11 +97,11 @@ plt.show()
 
 predictions_num = 10
 
-x_min = x_train[:, 0].min();
-x_max = x_train[:, 0].max();
+x_min = x_train[:, 0].min()
+x_max = x_train[:, 0].max()
 
-y_min = x_train[:, 1].min();
-y_max = x_train[:, 1].max();
+y_min = x_train[:, 1].min()
+y_max = x_train[:, 1].max()
 
 
 x_axis = np.linspace(x_min, x_max, predictions_num)

@@ -1,5 +1,5 @@
 import numpy as np
-from machine_learning.utils.features import prepare_for_training
+from utils.features import prepare_for_training
 
 
 class LinearRegression:
@@ -23,6 +23,7 @@ class LinearRegression:
         self.normalize_data = normalize_data
         
         num_features = self.data.shape[1]
+        print(self.data.shape)
         self.theta = np.zeros((num_features,1))
         
     def train(self,alpha,num_iterations = 500):
