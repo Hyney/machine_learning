@@ -21,7 +21,7 @@ class LinearRegression:
         :param normalize_data:
         """
         data_processed, features_mean, features_deviation = prepare_for_training(
-            data, polynomial_degree, sinusoid_degree, normalize_data=True
+            data, polynomial_degree, sinusoid_degree, normalize_data
         )
 
         self.data = data_processed

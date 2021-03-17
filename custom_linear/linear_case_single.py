@@ -1,7 +1,12 @@
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
 """
-单变量的线性回归测试案例
+@Author  :   Hyney
+@Software:   PyCharm
+@File    :   linear_case_multi.py
+@Time    :   2021/3/12 20:21
+@Desc    :   单变量数据线性回归
 """
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
