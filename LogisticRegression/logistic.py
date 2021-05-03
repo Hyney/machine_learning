@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from sklearn.datasets import load_iris
 
-from logistic_regression import LogisticRegression
+from LogisticRegression.logistic_regression import LogisticRegression
 
 
 iris_data = load_iris()

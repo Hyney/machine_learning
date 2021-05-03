@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
 
-from logistic_regression import LogisticRegression
+from LogisticRegression.logistic_regression import LogisticRegression
 
 
 data = pd.read_csv('../data/microchips-tests.csv')
@@ -58,6 +58,7 @@ Z = np.zeros((num_examples, num_examples))
 for x_index, x in enumerate(X):
     for y_index, y in enumerate(Y):
         data = np.array([[x, y]])
+        predictions = estimator.predict(data)
         Z[x_index][y_index] = estimator.predict(data)[0, 0]
 
 positives = (y_train == 1).flatten()

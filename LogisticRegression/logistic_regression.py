@@ -1,8 +1,8 @@
 import numpy as np
 from scipy.optimize import minimize
 
-from machine_learning.utils.features import prepare_for_training
-from machine_learning.utils.hypothesis import sigmoid
+from utils.features import prepare_for_training
+from utils.hypothesis import sigmoid
 
 
 class LogisticRegression:
@@ -27,7 +27,9 @@ class LogisticRegression:
         for index, label in enumerate(self.unique_labels):  # 根据分类类别迭代, 每次迭代过程，对当前类别的theta值进行梯度下降求值
             current_initial_theta = np.copy(self.theta[index].reshape(num_features, 1))  # 找到属于当前类别的初始化theta值
             current_labels = (self.labels == label).astype(float)  # 判断分类标签是否等于给定的标签值; 找到属于当前类别的标签位置，并将标签值置为1，不属于当前类别的置为0
-            current_theta, cost_history = self.gradient_descent(self.data, current_labels, current_initial_theta, max_iterations)
+            current_theta, cost_history = self.gradient_descent(
+                self.data, current_labels, current_initial_theta, max_iterations
+            )
             self.theta[index] = current_theta.T   # 优化后的theta值转换为了(num_feature, 1) 的行矩阵， 原始theta值是(num_labels, num_features)的矩阵， 因此在将原theta值更新为优化后的值是，需要将其转换为列矩阵
             cost_histories.append(cost_history)
         return cost_histories
