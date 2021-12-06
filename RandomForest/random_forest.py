@@ -1,14 +1,14 @@
 from matplotlib import pyplot as plt
-from matplotlib import cm
+from matplotlib.colors import ListedColormap
 import numpy as np
-from sklearn.datasets import make_moons, load_iris, fetch_mldata
+from sklearn.datasets import make_moons
 from sklearn.ensemble import RandomForestClassifier, VotingClassifier, BaggingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
-from sklearn.ensemble import GradientBoostingClassifier, GradientBoostingRegressor
+from sklearn.ensemble import GradientBoostingRegressor
 
 
 def voting():
@@ -73,7 +73,6 @@ def bagging():
 #
 # # 决策边界
 #     # 集成与传统方法对比
-from matplotlib.colors import ListedColormap
 def plot_decision_boundary(classifier, x_data, y_data, axes=(-1.5, 2.5, -1.5, 2.5), alpha=0.5, contour=True):
     X, y = make_moons(n_samples=500, noise=0.30, random_state=42)
     x_train, x_test, y_train, y_test = train_test_split(X, y, random_state=42)
