@@ -1,7 +1,7 @@
 from math import log
 import pickle
 
-from tree_visualize import create_plot
+from decisiontree.tree_visualize import create_plot
 
 
 def create_data_set():
@@ -108,7 +108,7 @@ def create_tree(data_set, feature_names, feature_labels: list):
     :return:
     """
     class_list = [example[-1] for example in data_set]   # 拿出传入的数据集的所有标签值
-    if class_list.count(class_list[0]) == len(class_list):  # 如果标签集都未同一标签，则不需要再进行划分树
+    if class_list.count(class_list[0]) == len(class_list):  # 如果标签集都为同一标签，则不需要再进行划分树
         return class_list[0]
     if len(data_set[0]) == 1:   # 数据集特征筛选完毕，只剩下标签
         return majority_count(class_list)

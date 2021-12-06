@@ -2,8 +2,8 @@ from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.datasets import load_iris
+from K_Means.k_means import KMeans
 
-from k_means import KMeans
 
 iris_data = load_iris()
 data = pd.DataFrame(iris_data.data, columns=iris_data.feature_names)

@@ -50,7 +50,8 @@ class KMeans:
             closest_centroids_ids[example_index] = np.argmin(distance)  # 找出最小距离的位置
         return closest_centroids_ids
 
-    def centroids_compute(self, data, closest_centroids_ids, num_clusters):
+    @staticmethod
+    def centroids_compute(data, closest_centroids_ids, num_clusters):
         """
         接着对已聚类的样本，重新计算出每个聚类的新中心点(平均值)
         :param data:
